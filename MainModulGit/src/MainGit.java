@@ -2,7 +2,7 @@
 public class MainGit {
    int c = 1;
     public static void main(String[] args) {
-        int c=2;
+        int c=3;
          c=c<<1;
         MainGit oc = new MainGit();
         //oc.c<<=2;

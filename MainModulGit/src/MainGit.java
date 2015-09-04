@@ -1,7 +1,10 @@
+import java.awt.*;
 import java.io.*;
 
-public class MainGit {
+public class MainGit{
    int c = 1;
+
+
     public static void main(String[] args) {
         int c;
         MainGit oc = new MainGit();
@@ -30,6 +33,13 @@ if (args.length!=1){
     System.out.println("ShowFile");
     return;
 }
+        Desktop des = null;
+        try {
+            des.open(File.createTempFile("efd","RTH"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         try (FileInputStream fin = new FileInputStream(File.createTempFile("str1","str2"))){
 
             do {
@@ -49,6 +59,8 @@ if (args.length!=1){
                 e.printStackTrace();
             }
         } */
+
+
 
     }
 

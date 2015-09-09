@@ -1,26 +1,52 @@
 import Generics.GenericDemo;
+import Generics.RestrectedGeneric;
 
 import java.awt.*;
+import java.awt.geom.RectangularShape;
 import java.io.*;
 import java.util.Locale;
 
 import static java.lang.Math.*;
 
-public class MainGit{
-   int c = 1;
+public class  MainGit<G extends Comparable> implements CheckGeneric{
+
+
+
+    public G heh() {
+        return null;
+    }
+
+    int c = 1;
     transient char tc = 'h';
-//    volatile v;
+    volatile float ff = 7;
+
+
+
+    <Y extends String> MainGit(Y m) {
+       String s = m.toString();
+       System.out.println(s);
+   }
+
+  static <F, V extends F> void genMethod(F x, V a[]){
+       System.out.println(x.getClass()+a.toString());
+
+    }
 
 
     public static void main(String[] args) {
+
+        new MainGit("gogogo");
+        Integer arg[] = {1,2,3,4};
+        MainGit.genMethod(2,arg);
+
        int c = 12;
 
        float f = 13.2f;
 
-       Integer ass;
-       MainGit oc = new MainGit();
-       oc.c <<= 2;
-       System.out.println("hi Git! " + oc.c);
+//       Integer ass;
+//       MainGit oc = new MainGit();
+//       oc.c <<= 2;
+//       System.out.println("hi Git! " + oc.c);
 /*
         Console br = new Console();
         try {
@@ -109,11 +135,29 @@ double x = random();
         byte v = obb.getObg();
         System.out.println("v = "+v);
 
-        GenericDemo<Character> obc = new GenericDemo<Character>('X');
+        GenericDemo<Character> obc = new GenericDemo('X');
         obc.ShowG();
         char vc = obc.getObg();
-        System.out.println("vc = "+vc);
+        System.out.println("vc = "+vc+"\n");
 
+        Byte barr[] = {5,5,5};
+        RestrectedGeneric<Byte> bob = new RestrectedGeneric<Byte>(barr);
+        System.out.println("Average = " + bob.mid());
+        Integer iarr[] = {5,5,5};
+        RestrectedGeneric<Integer> iob = new RestrectedGeneric<Integer>(iarr);
+        System.out.println("Average = " + iob.mid());
+        Double darr[] = {5.7,5.9,5.3};
+        RestrectedGeneric<Integer> dob = new RestrectedGeneric(darr);
+        System.out.println("Average = " + dob.mid());
+
+        System.out.println("Average value of bob and iob");
+        if (bob.samemid(iob))
+            System.out.println("Equal");
+        else System.out.println("Not equal");
+        System.out.println("Average value of iob and dob");
+        if (iob.samemid(dob))
+            System.out.println("Equal");
+        else System.out.println("Not equal");
 
 
 

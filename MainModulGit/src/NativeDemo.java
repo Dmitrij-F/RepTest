@@ -1,7 +1,7 @@
 /**
  * Created by Bro on 05.09.15.
  */
-public class NativeDemo {
+public final class NativeDemo extends AbsractClass{
     int i;
 
    static void methodN (){
@@ -12,11 +12,15 @@ public class NativeDemo {
         System.out.println("i = "+obn.i);
 
     }
-
+@Deprecated
 public  native void test();
 
-    static {
-        System.loadLibrary("NativeEx");
-    }
+//     {
+//        System.loadLibrary("NativeEx");
+//    }
 
+    @Override
+    void absM() {
+        System.out.println("NativeDemo override absM");
+    }
 }

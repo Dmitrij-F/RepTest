@@ -20,6 +20,7 @@ public class RestrectedGeneric<H extends Number & Serializable>{
        } finally {
            return sum / argz.length;
        }
+
     }
 
    public boolean samemid (RestrectedGeneric<? extends Number> o){

@@ -1,7 +1,7 @@
 /**
  * Created by Bro on 05.09.15.
  */
-public final class NativeDemo extends AbsractClass{
+public class NativeDemo extends AbsractClass{
     int i;
 
    static void methodN (){

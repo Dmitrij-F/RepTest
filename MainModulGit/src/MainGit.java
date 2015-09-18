@@ -1,15 +1,13 @@
 import Generics.GenericDemo;
 import Generics.RestrectedGeneric;
-import org.omg.SendingContext.RunTime;
+import org.xml.sax.SAXException;
 
-import java.awt.*;
-import java.awt.geom.RectangularShape;
+import javax.smartcardio.Card;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.sql.*;
-import java.sql.Date;
 import java.util.*;
+import java.util.List;
+import java.util.regex.Pattern;
 
 import static java.lang.Math.*;
 
@@ -17,9 +15,35 @@ import static java.lang.Math.*;
  * @author Bro
  * @version 1.1
  */
-public class MainGit extends AbsractClass implements Serializable {
+public class MainGit extends AbsractClass implements Serializable, CheckGeneric, Check {
 
 
+    /**
+     * @param dd
+     * @return
+     */
+    @Override
+    public int someM(double dd) {
+        return 0;
+    }
+
+    class A1{
+        String str = "s1";
+//        new MainGit();
+        A1(){
+            strinfo();
+        }
+
+        void strinfo() {
+            System.out.println(str+" - "+str.length());
+        }
+    }
+    class B1 extends A1{
+        String str = "s23";
+        void strinfo() {
+            System.out.println(str+" - "+str.length());
+        }
+    }
 
 
     int c = 1;
@@ -27,10 +51,10 @@ public class MainGit extends AbsractClass implements Serializable {
     volatile float ff = 7;
 
 
-    <Y extends String> MainGit(Y m) {
-        String s = m.toString();
-        System.out.println(s);
-    }
+//    <Y extends String> MainGit(Y m) {
+//        String s = m.toString();
+//        System.out.println(s);
+//    }
 
     static <F, V extends F> void genMethod(F x, V a[]) {
         System.out.println(x.getClass() + a.toString());
@@ -38,12 +62,13 @@ public class MainGit extends AbsractClass implements Serializable {
     }
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
+
+        int[] ii = new int[12];
 
         long start, end;
 
-
-        new MainGit("gogogo").absM();
+        //new MainGit("gogogo").absM();
         Integer arg[] = {1, 2, 3, 4};
         MainGit.genMethod(2, arg);
 
@@ -119,6 +144,7 @@ public class MainGit extends AbsractClass implements Serializable {
         C c1 = new C();
         D d = new D();
 //       c1 = (C) a;
+        //d.;
 
         Object ar[] = {a, b, c1, d};
         for (int j = 0; j <= 3; j++) {
@@ -169,15 +195,18 @@ public class MainGit extends AbsractClass implements Serializable {
 
 /** Collections Demo */
         //ArrayList
-        ArrayList<String> al = new ArrayList<>();
-        al.ensureCapacity(55);
+        List<String> al = new ArrayList<>();
+       // al.ensureCapacity(55);
         System.out.println("Size of al = " + al.size());
         al.add("1st string");
         al.add("2d string");
         al.add(String.valueOf("3d string".charAt(5)));
         al.add(2, "insert");
+
         System.out.println("Size of al = " + al.size() + "\n" + al);
         al.remove(1);
+       if (al.contains("2st string")) System.out.println("contain");
+        else System.out.println("not contain");
         System.out.println(al);
 
         String os[] = new String[al.size()];
@@ -190,22 +219,51 @@ public class MainGit extends AbsractClass implements Serializable {
 
         //LinkedList
         LinkedList<Double> ll = new LinkedList<>();
-        ll.add(8.5);
+        ll.add(88.5);
         ll.add(11.5);
         ll.add(3.5);
         ll.addLast(55.5);
         ll.addFirst(0.5);
-        System.out.println(ll);
+        ll.set(2, 54.1);
+        System.out.println("get index 4 = "+ll.get(4));
         ll.set(3, ll.get(3) + 60.5);
         System.out.println("LinkedList = " + ll);
+        List<Double> sub = ll.subList(1,2);
+//        sub.clear();
+        System.out.println(sub);
+
+
+
+
 
         //HashSet
         HashSet<String> hs = new HashSet<>();
-        hs.add("B");
-        hs.add("D");
-        hs.add("C");
-        hs.add("D");
-        System.out.println("HashSet = " + hs);
+//        hs.add("C");
+//        hs.add("D");
+//        hs.add("B");
+//        hs.add("A");
+//        System.out.println(hs.hashCode());
+//        System.out.println("HashSet = " + hs);
+//        for (String el : hs){
+//           if (el.equals("Bg")) System.out.println(el);;
+//        }
+//        System.out.println("HashSet = " + hs);
+
+//        Iterator<String> ihs = hs.iterator();
+//        Scanner in = new Scanner(System.in);
+//        while (in.hasNext()) {
+//            String word = in.next();
+//            hs.add(word);
+//        }
+//        System.out.println(hs);
+
+
+        char[] cc = "jk".toCharArray();
+        System.out.println("String to char = "+cc[0]+" "+cc[1]);
+//
+//ArrayList<String> la = new ArrayList<>(hs);
+//        System.out.println("HashSet to ArrayList = "+la);
+
 
         //LinkedHashSet
         LinkedHashSet<String> lhs = new LinkedHashSet<>();
@@ -224,6 +282,22 @@ public class MainGit extends AbsractClass implements Serializable {
         System.out.println("TreeSet = " + ts);
         System.out.println("TreeSet = " + ts.subSet('a', 'z'));
 
+        //TreeSet example with own class and Comparator
+SortedSet<Item> parts = new TreeSet<>();
+        parts.add(new Item("ololo",11));
+        parts.add(new Item("kokoko",100500));
+        parts.add(new Item("hehehe",42));
+        System.out.println("Item = "+parts);
+SortedSet<Item> sortbydesc = new TreeSet<>(new Comparator<Item>() {
+    public int compare(Item a, Item b) {
+        String deskA = a.getDescription();
+        String deskB = b.getDescription();
+        return deskA.compareTo(deskB);
+    }
+});
+        sortbydesc.addAll(parts);
+        System.out.println("Item with Comparator = "+sortbydesc);
+
         //ArrayDeque
         ArrayDeque<Boolean> ad = new ArrayDeque<>(250);
         ad.add(true);
@@ -231,22 +305,23 @@ public class MainGit extends AbsractClass implements Serializable {
         ad.add(true);
         ad.add(false);
         System.out.println("ArrayDeque = " + ad);
-
         while (ad.peek() != null)
             System.out.println(ad.pop());
 
-        //Iterator with collections
-        ListIterator<Double> ill = ll.listIterator();
-        while (ill.hasNext())
-            System.out.print(+ill.next() + " ");
-        System.out.println();
+        //Prioruty Queue
+        PriorityQueue<GregorianCalendar> pq = new PriorityQueue<>();
+        pq.add(new GregorianCalendar(1983,Calendar.DECEMBER,20)); // My date
+        pq.add(new GregorianCalendar(1989,Calendar.FEBRUARY,16)); // Ded
+        pq.add(new GregorianCalendar(2002,Calendar.JUNE,14)); // Kentik
+        for (GregorianCalendar date : pq){
+            System.out.println("Prioruty Queue = "+date.get(Calendar.YEAR));
+        }
+        while (!pq.isEmpty()){
+            System.out.println("Prioruty Queue = "+pq.remove().get(Calendar.YEAR));
+        }
+//        System.out.println(pq);
 
-        //For-each with collections
-        double sumd = 0;
-        for (double dd : ll)
-            sumd += dd;
-        System.out.print(sumd + " ");
-        System.out.println();
+
 
 //        //HashMap
         HashMap<String, Double> hm = new HashMap<>();
@@ -254,30 +329,106 @@ public class MainGit extends AbsractClass implements Serializable {
         hm.put("Middle", 1000.10);
         hm.put("Junior", 500.5);
         hm.put("Senior", 2000.20);
-
+//        Set<String> sk = new hm.keySet();
         Set<Map.Entry<String, Double>> set = hm.entrySet();
-        for (Map.Entry<String, Double> mm : set) {
+        for (HashMap.Entry<String, Double> mm : set) {
             System.out.print(mm.getKey() + " : ");
             System.out.println(mm.getValue());
         }
         double upmid = hm.get("Middle");
         hm.put("Middle", upmid + 200);
-
         System.out.println("Middle new value = " + hm.get("Middle"));
+
+        Map<String, String> staff = new HashMap<>();
+        staff.put("00-111", "Vasja");
+        staff.put("00-112", "Kolja");
+        staff.put("00-113", "Ivan");
+        System.out.println("Emplyers = " + staff);
+        staff.remove("00-111");
+        staff.put("00-113", "Sanja");
+        System.out.println("Kolja = "+staff.get("00-112"));
+        for (Map.Entry<String, String> entry : staff.entrySet())
+            System.out.println("key = "+entry.getKey()+"value = "+entry.getValue());
+
+
 
         //TreeMap
         TreeMap<String, Double> tm = new TreeMap<>();
-
         tm.put("Middle", 1000.10);
         tm.put("Junior", 5000.5);
         tm.put("Senior", 2000.20);
-
         Set<Map.Entry<String, Double>> sett = tm.entrySet();
         for (Map.Entry<String, Double> mm : sett) {
             System.out.print(mm.getKey() + " : ");
             System.out.println(mm.getValue());
         }
 
+        //Iterator
+//        int aa[] = {1, 2, 3, 4};
+//        List<Integer> intList = aa[];
+//        Iterator<Integer> itr = intList.iterator();
+//        System.out.println("ITERATOR");
+//        while (itr.hasNext())
+//            System.out.println(itr.next());
+
+        //ListIterator
+        ListIterator<Double> ill = ll.listIterator();
+        System.out.println("ListIterator");
+        while (ill.hasNext()) {
+            ill.next();
+            //colle.remove();
+        }
+        while (ill.hasNext())
+            System.out.print(+ill.next() + " ");
+
+        System.out.println();
+
+        //For-each with collections
+        double sumd = 0;
+        System.out.println("For-each");
+        for (double dd : ll){
+            sumd += dd;
+        }
+        System.out.print(sumd + " ");
+        System.out.println();
+
+
+        String[] ca = new String[5];
+        List<String> names = Arrays.asList("Jo","Jon","Kate");
+        List<String> settings = Collections.nCopies(55, "Cop");
+
+
+
+/**
+ * XML demo
+ */
+//        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//        File ff = new File("");
+//
+//
+//            DocumentBuilder builder = factory.newDocumentBuilder();
+//            Document doc = builder.parse(ff);
+//
+//
+//        Element root = doc.getDocumentElement();
+//        NodeList children = root.getChildNodes();
+
+/**
+ * Regex demo
+ */
+
+
+
+
+
+
+
+
+
+
+/**
+ * Quizful test
+ */
 
         java.util.Date dutil = new java.util.Date();
         System.out.println(dutil.toString());
@@ -291,39 +442,98 @@ public class MainGit extends AbsractClass implements Serializable {
 //        no.da;
         NativeEx neo = new NativeEx();
         neo.absM();
-       // if (no instanceof(Integer))
+        // if (no instanceof(Integer))
 
         AbsractClass ao;
 
         try {
-            System.out.println(new TestNPE().handle(new Formatter(),null));
-        }
-        catch (NullPointerException e){
+            System.out.println(new TestNPE().handle(new Formatter(), null));
+        } catch (NullPointerException e) {
             System.out.println(e);
         }
 
 
-try {
-    MainGit.sqr5(67.6);
-}
-catch (RuntimeException e){
-    System.out.println(e);
-}
-
-
-        //Map map = new Map();
-        for(Object o: map.keySet()){
-            System.out.println(o);
+        try {
+            MainGit.sqr5(67.6);
+        } catch (RuntimeException e) {
+            System.out.println(e);
         }
 
 
+//        Map map = new Map();
+//        for(Object o: map.keySet()){
+//            System.out.println(o);
+//        }
 
-        int a = 0xFF0;
-        int b = 0xF0F;
-        int c = 0x0FF;
 
-        c = a = (a ^ b | a & b) ^ c;
-        System.out.println((c | a) ^ (c & a));
+        int a1 = 0xFF0;
+        int b1 = 0xF0F;
+        int c2 = 0x0FF;
+
+        System.out.println(a1);
+        System.out.println(b1);
+        System.out.println(a1 | b1);
+        c2 = a1 = (a1 ^ b1 | a1 & b1) ^ c2;
+        System.out.println((c2 | a1) ^ (c2 & a1));
+
+        String s[] = {"a", "b", "c", "d"};
+        List<String> strList = Arrays.asList(s);
+        System.out.println(strList);
+        String[] ss = (String[]) strList.toArray();
+        System.out.println(ss);
+
+        int[] mass = {1, 2};
+        List<String> list = new ArrayList(10);
+        list.add("03");
+        list.add("04");
+
+        //  "." change value
+        System.out.println("." + mass.length + list.size());
+
+        System.out.println(((CheckGeneric) new MainGit()).text);
+
+        try {
+            new MainGit().new B1();
+        }
+        catch (NullPointerException e){
+            System.out.println(e);
+        }
+        finally {
+            new MainGit().new A1();
+        }
+
+        //reflection power!
+        MainGit nullReferenceTest = null;
+        System.out.println(MainGit.class.getName().replaceAll("MainGit", "Hello, World from reflections!"));
+
+        if(System.out.printf("Hello world\n".intern()) == null){}
+
+//        Set<String> set = new HashSet<>();
+//        set.add("A");
+//        set.add("B");
+//        // Преобразование.
+//        List<String> list = new ArrayList<>(set);
+
+        System.out.println(3.45 % 1.24);
+
+        Double dh1 = Double.MAX_VALUE;
+        Double dh2 = Double.MAX_VALUE;
+        System.out.println(dh1.hashCode());
+        dh2 = dh2 +100000000000000000000000000.1;
+        System.out.println(dh2.hashCode());
+        System.out.println(dh2.equals(dh1));
+        System.out.println(dh1.hashCode() == dh2.hashCode());
+
+        String s1 = "";
+        String s2 = "";
+        System.out.println("pool = "+s1.compareTo(s2));
+
+        String s3 = new String("".intern());
+        System.out.println("s3 - "+s3.compareTo(s1));
+
+
+
+
 
 
 
@@ -367,7 +577,6 @@ catch (RuntimeException e){
         //MainGit mg = new MainGit();
 
 
-
     }
 
     public static void main() {
@@ -378,7 +587,8 @@ catch (RuntimeException e){
     public static double sqr1(double arg) {
         return arg;
     }
-//    public static double sqr2(double arg) {
+
+    //    public static double sqr2(double arg) {
 //        while (true);
 //    }
     public static double sqr3(double arg) {
@@ -387,10 +597,12 @@ catch (RuntimeException e){
         }
         return arg;
     }
+
     public double sqr4(double arg) {
         int k = 1;
         return k;
     }
+
     public static double sqr5(double arg) {
         throw new RuntimeException();
     }
@@ -407,5 +619,9 @@ catch (RuntimeException e){
     }
 
 
+    static {
+        System.out.println("Hi Static!");
+        //System.exit(10);
+    }
 
 }

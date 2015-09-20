@@ -3,6 +3,7 @@ import Generics.RestrectedGeneric;
 import org.xml.sax.SAXException;
 
 import javax.smartcardio.Card;
+import javax.swing.*;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
 import java.util.*;
@@ -15,16 +16,27 @@ import static java.lang.Math.*;
  * @author Bro
  * @version 1.1
  */
-public class MainGit extends AbsractClass implements Serializable, CheckGeneric, Check {
-
+public class MainGit extends AbsractClass implements Serializable, CheckGeneric, Check,Runnable {
 
     /**
      * @param dd
      * @return
      */
+
+
+
     @Override
     public int someM(double dd) {
         return 0;
+    }
+
+    Thread ot1 = new Thread();
+
+    @Override
+    public void run() {
+        synchronized (ot1){}
+        ot1.start();
+
     }
 
     class A1{
@@ -228,8 +240,19 @@ public class MainGit extends AbsractClass implements Serializable, CheckGeneric,
         System.out.println("get index 4 = "+ll.get(4));
         ll.set(3, ll.get(3) + 60.5);
         System.out.println("LinkedList = " + ll);
+        Collections.sort(ll);
+        System.out.println("LinkedList sort = " + ll);
+        int ki = Collections.binarySearch(ll,111.5);
+        if (ki > 0) System.out.println(ll.get(ki));
+        else {
+            System.out.println(ki);
+            ll.add(-ki-1,111.5);
+            System.out.println("ll + ki = "+ll);
+        }
+        System.out.println("Max ll = " + Collections.max(ll));
+        Collections.shuffle(ll);
+        System.out.println("Shuffle ll = "+ll);
         List<Double> sub = ll.subList(1,2);
-//        sub.clear();
         System.out.println(sub);
 
 
@@ -288,15 +311,15 @@ SortedSet<Item> parts = new TreeSet<>();
         parts.add(new Item("kokoko",100500));
         parts.add(new Item("hehehe",42));
         System.out.println("Item = "+parts);
-SortedSet<Item> sortbydesc = new TreeSet<>(new Comparator<Item>() {
+SortedSet<Item> srtbydesc = new TreeSet<>(new Comparator<Item>() {
     public int compare(Item a, Item b) {
         String deskA = a.getDescription();
         String deskB = b.getDescription();
         return deskA.compareTo(deskB);
     }
 });
-        sortbydesc.addAll(parts);
-        System.out.println("Item with Comparator = "+sortbydesc);
+        srtbydesc.addAll(parts);
+        System.out.println("Item with Comparator = "+srtbydesc);
 
         //ArrayDeque
         ArrayDeque<Boolean> ad = new ArrayDeque<>(250);
@@ -397,6 +420,7 @@ SortedSet<Item> sortbydesc = new TreeSet<>(new Comparator<Item>() {
         List<String> names = Arrays.asList("Jo","Jon","Kate");
         List<String> settings = Collections.nCopies(55, "Cop");
 
+        Hashtable<String, String> hi;
 
 
 /**
@@ -524,16 +548,30 @@ SortedSet<Item> sortbydesc = new TreeSet<>(new Comparator<Item>() {
         System.out.println(dh2.equals(dh1));
         System.out.println(dh1.hashCode() == dh2.hashCode());
 
-        String s1 = "";
-        String s2 = "";
-        System.out.println("pool = "+s1.compareTo(s2));
+        int i = 5;
+        i = i++ + ++i;
+        System.out.println(i);
 
-        String s3 = new String("".intern());
-        System.out.println("s3 - "+s3.compareTo(s1));
+        int v1=1; long v2=2; v1= (int) (v1+v2);
+//        int v1=1; long v2=2; v1+=v2;
 
+        System.out.println(Float.NaN==Float.NaN);
+        double valueOne = -0.0;
+        double valueTwo = 0.0;
+//        System.out.println(Double.compare(valueOne,valueTwo));
+        System.out.println(Double.valueOf(valueOne).equals(valueTwo));
 
+double sh = .4;
+        System.out.println(.6);
 
-
+MainGitImpl exx = new MainGitImpl() {
+    @Override
+    int kk(int k) {
+        super.kk(k);
+        return this.k;
+    }
+};
+        System.out.println(exx.kk(7));
 
 
 
@@ -609,6 +647,7 @@ SortedSet<Item> sortbydesc = new TreeSet<>(new Comparator<Item>() {
 
 
     static {
+
         byte ids = 8;
     }
 
@@ -623,5 +662,13 @@ SortedSet<Item> sortbydesc = new TreeSet<>(new Comparator<Item>() {
         System.out.println("Hi Static!");
         //System.exit(10);
     }
+
+
+    void CheckColl(JMenu mm, Collection<JMenuItem> items){
+
+    }
+
+
+
 
 }

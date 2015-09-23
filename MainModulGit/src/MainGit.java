@@ -1,12 +1,18 @@
 import Generics.GenericDemo;
 import Generics.RestrectedGeneric;
+import com.mysql.jdbc.*;
 import org.xml.sax.SAXException;
 
 import javax.smartcardio.Card;
 import javax.swing.*;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.Statement;
 import java.util.*;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -615,6 +621,22 @@ MainGitImpl exx = new MainGitImpl() {
         //MainGit mg = new MainGit();
 
 
+        /**
+         * JDBC - MySQL demo
+         *
+         *
+         */
+
+runSQL();
+
+
+
+
+
+
+
+
+
     }
 
     public static void main() {
@@ -651,7 +673,6 @@ MainGitImpl exx = new MainGitImpl() {
         byte ids = 8;
     }
 
-
     @Override
     void absM() {
         System.out.println("MainGit override absM");
@@ -663,10 +684,57 @@ MainGitImpl exx = new MainGitImpl() {
         //System.exit(10);
     }
 
+    public static void runSQL(){
 
-    void CheckColl(JMenu mm, Collection<JMenuItem> items){
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            System.out.println("Driver loaded");
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pitomnik", "root", "11")){
+            System.out.println("CONNECTED to db pitomnik");
+            conn.createStatement().executeUpdate("TRUNCATE TABLE Characters"); //
+            conn.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS Characters (hero VARCHAR(20)," +
+                    " superskill VARCHAR(20), petik VARCHAR(20),id INT PRIMARY KEY AUTO_INCREMENT)");
+            conn.createStatement().executeUpdate("INSERT INTO characters(hero, superskill, petik) VALUES('batman'," +
+                    " 'boomerang', 'Neko'), ('superman', 'superpunch', 'puppy'), ('hulk', 'rrrrr', 'plutto') ");
+
+//            conn.createStatement().executeUpdate("ALTER TABLE Characters ADD id INT");
+
+
+
+
+
+            Statement stat = conn.createStatement();
+            ResultSet rs = stat.executeQuery("SELECT * FROM Characters LEFT JOIN pet ON Characters.petik = pet.name");
+            while (rs.next()){
+                System.out.println(rs.getString(1));
+            }
+            System.out.println();
+            ResultSet rs2 = conn.createStatement().executeQuery("SELECT superskill FROM Characters WHERE petik REGEXP 'o$'");
+            while (rs2.next()){
+                System.out.println(rs2.getString(1));
+            }
+
+
+
+            DatabaseMetaData meta = conn.getMetaData();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
 
     }
+
 
 
 

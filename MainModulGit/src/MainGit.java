@@ -1,20 +1,25 @@
 import Generics.GenericDemo;
 import Generics.RestrectedGeneric;
-import com.mysql.jdbc.*;
+import InterfaceVsAbstractClass.Inter;
+import InterfaceVsAbstractClass.aClass;
+import InterfaceVsAbstractClass.oClass;
+import Net.NetDemo;
+import SQL.SQLDemo;
 import org.xml.sax.SAXException;
 
-import javax.smartcardio.Card;
-import javax.swing.*;
+import javax.mail.Session;
+import javax.mail.internet.MimeMessage;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
+import java.lang.reflect.Field;
+import java.net.URL;
+import java.net.URLConnection;
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.Statement;
 import java.util.*;
-import java.util.Date;
 import java.util.List;
-import java.util.regex.Pattern;
 
 import static java.lang.Math.*;
 
@@ -22,7 +27,8 @@ import static java.lang.Math.*;
  * @author Bro
  * @version 1.1
  */
-public class MainGit extends AbsractClass implements Serializable, CheckGeneric, Check,Runnable {
+public class MainGit extends aClass implements Serializable, CheckGeneric, Check, Inter {
+
 
     /**
      * @param dd
@@ -42,6 +48,11 @@ public class MainGit extends AbsractClass implements Serializable, CheckGeneric,
     public void run() {
         synchronized (ot1){}
         ot1.start();
+
+    }
+
+    @Override
+    public void method() {
 
     }
 
@@ -489,13 +500,6 @@ SortedSet<Item> srtbydesc = new TreeSet<>(new Comparator<Item>() {
             System.out.println(e);
         }
 
-
-//        Map map = new Map();
-//        for(Object o: map.keySet()){
-//            System.out.println(o);
-//        }
-
-
         int a1 = 0xFF0;
         int b1 = 0xF0F;
         int c2 = 0x0FF;
@@ -579,7 +583,48 @@ MainGitImpl exx = new MainGitImpl() {
 };
         System.out.println(exx.kk(7));
 
+new oClass();
 
+MainGit omg = new MainGit();
+        //omg.equals()
+
+
+        new EmployeeExt().testGetSet();
+
+//mkdir();
+
+
+        System.out.println(MainGit.hashcode());
+
+    System.err.println(44);
+
+int u=33;
+        double u2 = 0;
+        u = (int) (u2+3);
+        System.out.println(u);
+
+        Singleton.getInstance();
+
+// Reflections POWER!!! Access to private fields
+        try {
+            EmployeeExt oemp = new EmployeeExt();
+            Field ref = EmployeeExt.class.getDeclaredField("jj".toString());
+            ref.setAccessible(true);
+            String refval = (String) ref.get(oemp);
+            System.out.println(refval);
+
+
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        
+//        Observable;
+
+        long lo = 13L;
+        int int1 = 13;
+        float flo = 13;
 
 
 
@@ -623,12 +668,19 @@ MainGitImpl exx = new MainGitImpl() {
 
         /**
          * JDBC - MySQL demo
-         *
-         *
          */
+//        SQLDemo.runSQL();
 
-runSQL();
+//        System.out.println(RGB.G.getI());
 
+        /**
+         * Net Demo
+         */
+//NetDemo.connectToServer();
+       NetDemo.URLConnect();
+
+        Session mailsession = Session.getDefaultInstance()
+        new MimeMessage()
 
 
 
@@ -673,7 +725,7 @@ runSQL();
         byte ids = 8;
     }
 
-    @Override
+
     void absM() {
         System.out.println("MainGit override absM");
     }
@@ -684,59 +736,18 @@ runSQL();
         //System.exit(10);
     }
 
-    public static void runSQL(){
-
-        try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            System.out.println("Driver loaded");
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pitomnik", "root", "11")){
-            System.out.println("CONNECTED to db pitomnik");
-            conn.createStatement().executeUpdate("TRUNCATE TABLE Characters"); //
-            conn.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS Characters (hero VARCHAR(20)," +
-                    " superskill VARCHAR(20), petik VARCHAR(20),id INT PRIMARY KEY AUTO_INCREMENT)");
-            conn.createStatement().executeUpdate("INSERT INTO characters(hero, superskill, petik) VALUES('batman'," +
-                    " 'boomerang', 'Neko'), ('superman', 'superpunch', 'puppy'), ('hulk', 'rrrrr', 'plutto') ");
-
-//            conn.createStatement().executeUpdate("ALTER TABLE Characters ADD id INT");
-
-
-
-
-
-            Statement stat = conn.createStatement();
-            ResultSet rs = stat.executeQuery("SELECT * FROM Characters LEFT JOIN pet ON Characters.petik = pet.name");
-            while (rs.next()){
-                System.out.println(rs.getString(1));
-            }
-            System.out.println();
-            ResultSet rs2 = conn.createStatement().executeQuery("SELECT superskill FROM Characters WHERE petik REGEXP 'o$'");
-            while (rs2.next()){
-                System.out.println(rs2.getString(1));
-            }
-
-
-
-            DatabaseMetaData meta = conn.getMetaData();
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (!super.equals(obj)) return true;
+        if (this.getClass() != obj.getClass()) return true;
+        return (boolean) obj;
     }
 
 
-
+    static public int hashcode(){
+        return 1;
+    }
 
 
 }

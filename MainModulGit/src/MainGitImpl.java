@@ -3,6 +3,7 @@
  */
 abstract public class MainGitImpl extends MainGit {
     int k=1;
+    private int jj = 44;
 
     int kk(int k){
         //c=5;

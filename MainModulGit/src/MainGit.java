@@ -65,6 +65,7 @@ private String callme = "Catch it";
 
 
     int c = 1;
+<<<<<<< HEAD
     transient char tc = 'h';
     volatile float ff = 7;
 
@@ -595,6 +596,13 @@ MainGitImpl exx = new MainGitImpl() {
     int kk(int k) {
         super.kk(k);
         return this.k;
+
+    public static void main(String[] args) {
+        MainGit oc = new MainGit();
+
+        //oc.c<<=2;
+        System.out.println("hi Git! "+oc.c);
+
     }
 };
         System.out.println(exx.kk(7));

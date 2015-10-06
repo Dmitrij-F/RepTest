@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.geronimo.bundles:sxc-runtime:0.7.2_1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/bundles/sxc-runtime/0.7.2_1/sxc-runtime-0.7.2_1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/bundles/sxc-runtime/0.7.2_1/sxc-runtime-0.7.2_1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/bundles/sxc-runtime/0.7.2_1/sxc-runtime-0.7.2_1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

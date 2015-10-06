@@ -3,21 +3,16 @@ import Generics.RestrectedGeneric;
 import InterfaceVsAbstractClass.Inter;
 import InterfaceVsAbstractClass.aClass;
 import InterfaceVsAbstractClass.oClass;
-import Net.NetDemo;
-import SQL.SQLDemo;
 import org.xml.sax.SAXException;
 
-import javax.mail.Session;
-import javax.mail.internet.MimeMessage;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
-import java.net.URL;
-import java.net.URLConnection;
-import java.sql.*;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.Statement;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Proxy;
+import java.math.BigInteger;
 import java.util.*;
 import java.util.List;
 
@@ -27,15 +22,9 @@ import static java.lang.Math.*;
  * @author Bro
  * @version 1.1
  */
-public class MainGit extends aClass implements Serializable, CheckGeneric, Check, Inter {
+public class MainGit extends aClass implements Serializable, CheckGeneric, Check, Inter, Cloneable {
 
-
-    /**
-     * @param dd
-     * @return
-     */
-
-
+private String callme = "Catch it";
 
     @Override
     public int someM(double dd) {
@@ -91,11 +80,34 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
     }
 
 
-    public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
+    public static void main(final String[] args) throws IOException, ParserConfigurationException, SAXException, CloneNotSupportedException {
 
         int[] ii = new int[12];
+final int k;
+        final int[] jk = new int[0];
 
         long start, end;
+
+        new Object().getClass().getEnclosingClass();
+
+class TestLocal{
+        void t(){
+            args[0]="12";
+            System.out.println("ffffffffffffffff");
+        }
+    }
+
+        CloneTest original = new CloneTest();
+        CloneTest copy = (CloneTest) original.clone();
+
+        new TimePrinter(){
+        void active(){}
+        };
+
+//        Timer t = new Timer("3000",listener);
+//        JOptionPane.showMessageDialog(null,"Exit now?");
+//        System.exit(0);
+
 
         //new MainGit("gogogo").absM();
         Integer arg[] = {1, 2, 3, 4};
@@ -172,6 +184,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         B b = new B();
         C c1 = new C();
         D d = new D();
+//        d = a.clone();
 //       c1 = (C) a;
         //d.;
 
@@ -225,6 +238,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 /** Collections Demo */
         //ArrayList
         List<String> al = new ArrayList<>();
+
        // al.ensureCapacity(55);
         System.out.println("Size of al = " + al.size());
         al.add("1st string");
@@ -278,17 +292,17 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 
         //HashSet
         HashSet<String> hs = new HashSet<>();
-//        hs.add("C");
-//        hs.add("D");
-//        hs.add("B");
-//        hs.add("A");
-//        System.out.println(hs.hashCode());
-//        System.out.println("HashSet = " + hs);
-//        for (String el : hs){
-//           if (el.equals("Bg")) System.out.println(el);;
-//        }
-//        System.out.println("HashSet = " + hs);
-
+        hs.add("C");
+        hs.add("D");
+        hs.add("B");
+        hs.add("A");
+        System.out.println(hs.hashCode());
+        System.out.println("HashSet = " + hs);
+        for (String el : hs){
+           if (el.equals("Bg")) System.out.println(el);;
+        }
+        System.out.println("HashSet = " + hs);
+//
 //        Iterator<String> ihs = hs.iterator();
 //        Scanner in = new Scanner(System.in);
 //        while (in.hasNext()) {
@@ -440,10 +454,12 @@ SortedSet<Item> srtbydesc = new TreeSet<>(new Comparator<Item>() {
         Hashtable<String, String> hi;
 
 
+
+
 /**
  * XML demo
  */
-//        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 //        File ff = new File("");
 //
 //
@@ -626,6 +642,28 @@ int u=33;
         int int1 = 13;
         float flo = 13;
 
+       String s1 = "test.".toUpperCase()
+                .toLowerCase()
+                .concat("+str1")
+                .toUpperCase();
+        System.out.println(s1);
+
+
+        BigInteger abig = BigInteger.valueOf(100);
+
+
+
+//        try {
+//            return;
+//        } finally {
+//            System.out.println("finally");
+//        }
+
+        System.out.println();
+
+//        MyThread mt = new MyThread();
+//        (new Thread(mt)).start();
+//        (new Thread(mt)).start();
 
 
 /**
@@ -677,11 +715,31 @@ int u=33;
          * Net Demo
          */
 //NetDemo.connectToServer();
-       NetDemo.URLConnect();
+//       NetDemo.URLConnect();
 
-        Session mailsession = Session.getDefaultInstance()
-        new MimeMessage()
+//        Session mailsession = Session.getDefaultInstance();
+//        new MimeMessage("sd").setFrom();
 
+
+      Integer xxx = new Integer("25");
+        int xx = 25;
+        if (xxx.equals(xx)) System.out.println(" 25 !!!!");
+
+
+MainGit.TestInnerClass inner = new MainGit().new TestInnerClass("HAHAHA");
+        System.out.println(inner);
+
+char sss = 0;
+        String fg = null;
+/**
+ * Proxy test
+ */
+Object[] elements = new Object[1000];
+        for (int j = 0; j < elements.length; j++) {
+            Integer value = j+1;
+            InvocationHandler handler = new TraceHandler(value);
+//            Object proxy = new Proxy.newProxyInstance()//newProxyInstance(null,new Class[]{Comparable.class},handler);
+        }
 
 
 
@@ -747,6 +805,17 @@ int u=33;
 
     static public int hashcode(){
         return 1;
+    }
+
+public class TestInnerClass {
+TestInnerClass(String s){
+    s=callme;
+    System.out.println(s);
+}
+}
+
+    void ReleaseTestInnerClass(){
+        new TestInnerClass("Opa");
     }
 
 

@@ -6,9 +6,8 @@ public class MyThread implements Runnable {
     private int y;
 
     @Override
-    public  void run() {
-        for (;;) /* Line 13 */
-        {
+    public void run() {
+        for (; ; ) /* Line 13 */ {
             x++;
             y++;
             System.out.println("x = " + x + "y = " + y);

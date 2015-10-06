@@ -11,7 +11,7 @@ public class Fork extends RecursiveAction {
     int beginning;
     int length;
     static int[] result;
-    static int dataSize = 100;
+    static int dataSize = 10000000;
 
     @Override
     protected void compute() {

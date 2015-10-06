@@ -8,7 +8,7 @@ public class Item implements Comparable<Item> {
     private String description;
     private int partnumber;
 
-    public Item(String description, int partnumber){
+    public Item(String description, int partnumber) {
         this.description = description;
         this.partnumber = partnumber;
     }
@@ -17,11 +17,11 @@ public class Item implements Comparable<Item> {
         return description;
     }
 
-    public String toString(){
-        return "[description = "+description+", partnumber = "+partnumber+" ]";
+    public String toString() {
+        return "[description = " + description + ", partnumber = " + partnumber + " ]";
     }
 
-    public boolean equals(Object otherobject){
+    public boolean equals(Object otherobject) {
         if (this == otherobject) return true;
         if (otherobject == null) return false;
         if (getClass() != otherobject.getClass()) return false;
@@ -29,15 +29,14 @@ public class Item implements Comparable<Item> {
         return Objects.equals(description, other.description) && (partnumber == other.partnumber);
     }
 
-    public int hashode(){
-        return Objects.hash(description,partnumber);
+    public int hashode() {
+        return Objects.hash(description, partnumber);
     }
 
     public int compareTo(Item other) {
 
         return Integer.compare(partnumber, other.partnumber);
     }
-
 
 
 }

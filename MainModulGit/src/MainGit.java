@@ -35,7 +35,8 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 
     @Override
     public void run() {
-        synchronized (ot1){}
+        synchronized (ot1) {
+        }
         ot1.start();
 
     }
@@ -45,21 +46,24 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 
     }
 
-    class A1{
+    class A1 {
         String str = "s1";
+
         //        new MainGit();
-        A1(){
+        A1() {
             strinfo();
         }
 
         void strinfo() {
-            System.out.println(str+" - "+str.length());
+            System.out.println(str + " - " + str.length());
         }
     }
-    class B1 extends A1{
+
+    class B1 extends A1 {
         String str = "s23";
+
         void strinfo() {
-            System.out.println(str+" - "+str.length());
+            System.out.println(str + " - " + str.length());
         }
     }
 
@@ -90,9 +94,9 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 
         new Object().getClass().getEnclosingClass();
 
-        class TestLocal{
-            void t(){
-                args[0]="12";
+        class TestLocal {
+            void t() {
+                args[0] = "12";
                 System.out.println("ffffffffffffffff");
             }
         }
@@ -100,8 +104,9 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         CloneTest original = new CloneTest();
         CloneTest copy = (CloneTest) original.clone();
 
-        new TimePrinter(){
-            void active(){}
+        new TimePrinter() {
+            void active() {
+            }
         };
 
 //        Timer t = new Timer("3000",listener);
@@ -268,26 +273,23 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         ll.addLast(55.5);
         ll.addFirst(0.5);
         ll.set(2, 54.1);
-        System.out.println("get index 4 = "+ll.get(4));
+        System.out.println("get index 4 = " + ll.get(4));
         ll.set(3, ll.get(3) + 60.5);
         System.out.println("LinkedList = " + ll);
         Collections.sort(ll);
         System.out.println("LinkedList sort = " + ll);
-        int ki = Collections.binarySearch(ll,111.5);
+        int ki = Collections.binarySearch(ll, 111.5);
         if (ki > 0) System.out.println(ll.get(ki));
         else {
             System.out.println(ki);
-            ll.add(-ki-1,111.5);
-            System.out.println("ll + ki = "+ll);
+            ll.add(-ki - 1, 111.5);
+            System.out.println("ll + ki = " + ll);
         }
         System.out.println("Max ll = " + Collections.max(ll));
         Collections.shuffle(ll);
-        System.out.println("Shuffle ll = "+ll);
-        List<Double> sub = ll.subList(1,2);
+        System.out.println("Shuffle ll = " + ll);
+        List<Double> sub = ll.subList(1, 2);
         System.out.println(sub);
-
-
-
 
 
         //HashSet
@@ -298,8 +300,9 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         hs.add("A");
         System.out.println(hs.hashCode());
         System.out.println("HashSet = " + hs);
-        for (String el : hs){
-            if (el.equals("Bg")) System.out.println(el);;
+        for (String el : hs) {
+            if (el.equals("Bg")) System.out.println(el);
+            ;
         }
         System.out.println("HashSet = " + hs);
 //
@@ -313,7 +316,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 
 
         char[] cc = "jk".toCharArray();
-        System.out.println("String to char = "+cc[0]+" "+cc[1]);
+        System.out.println("String to char = " + cc[0] + " " + cc[1]);
 //
 //ArrayList<String> la = new ArrayList<>(hs);
 //        System.out.println("HashSet to ArrayList = "+la);
@@ -338,10 +341,10 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 
         //TreeSet example with own class and Comparator
         SortedSet<Item> parts = new TreeSet<>();
-        parts.add(new Item("ololo",11));
-        parts.add(new Item("kokoko",100500));
-        parts.add(new Item("hehehe",42));
-        System.out.println("Item = "+parts);
+        parts.add(new Item("ololo", 11));
+        parts.add(new Item("kokoko", 100500));
+        parts.add(new Item("hehehe", 42));
+        System.out.println("Item = " + parts);
         SortedSet<Item> srtbydesc = new TreeSet<>(new Comparator<Item>() {
             public int compare(Item a, Item b) {
                 String deskA = a.getDescription();
@@ -350,7 +353,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
             }
         });
         srtbydesc.addAll(parts);
-        System.out.println("Item with Comparator = "+srtbydesc);
+        System.out.println("Item with Comparator = " + srtbydesc);
 
         //ArrayDeque
         ArrayDeque<Boolean> ad = new ArrayDeque<>(250);
@@ -364,17 +367,16 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 
         //Prioruty Queue
         PriorityQueue<GregorianCalendar> pq = new PriorityQueue<>();
-        pq.add(new GregorianCalendar(1983,Calendar.DECEMBER,20)); // My date
-        pq.add(new GregorianCalendar(1989,Calendar.FEBRUARY,16)); // Ded
-        pq.add(new GregorianCalendar(2002,Calendar.JUNE,14)); // Kentik
-        for (GregorianCalendar date : pq){
-            System.out.println("Prioruty Queue = "+date.get(Calendar.YEAR));
+        pq.add(new GregorianCalendar(1983, Calendar.DECEMBER, 20)); // My date
+        pq.add(new GregorianCalendar(1989, Calendar.FEBRUARY, 16)); // Ded
+        pq.add(new GregorianCalendar(2002, Calendar.JUNE, 14)); // Kentik
+        for (GregorianCalendar date : pq) {
+            System.out.println("Prioruty Queue = " + date.get(Calendar.YEAR));
         }
-        while (!pq.isEmpty()){
-            System.out.println("Prioruty Queue = "+pq.remove().get(Calendar.YEAR));
+        while (!pq.isEmpty()) {
+            System.out.println("Prioruty Queue = " + pq.remove().get(Calendar.YEAR));
         }
 //        System.out.println(pq);
-
 
 
 //        //HashMap
@@ -400,10 +402,9 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         System.out.println("Emplyers = " + staff);
         staff.remove("00-111");
         staff.put("00-113", "Sanja");
-        System.out.println("Kolja = "+staff.get("00-112"));
+        System.out.println("Kolja = " + staff.get("00-112"));
         for (Map.Entry<String, String> entry : staff.entrySet())
-            System.out.println("key = "+entry.getKey()+"value = "+entry.getValue());
-
+            System.out.println("key = " + entry.getKey() + "value = " + entry.getValue());
 
 
         //TreeMap
@@ -440,7 +441,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         //For-each with collections
         double sumd = 0;
         System.out.println("For-each");
-        for (double dd : ll){
+        for (double dd : ll) {
             sumd += dd;
         }
         System.out.print(sumd + " ");
@@ -448,12 +449,10 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 
 
         String[] ca = new String[5];
-        List<String> names = Arrays.asList("Jo","Jon","Kate");
+        List<String> names = Arrays.asList("Jo", "Jon", "Kate");
         List<String> settings = Collections.nCopies(55, "Cop");
 
         Hashtable<String, String> hi;
-
-
 
 
 /**
@@ -473,14 +472,6 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 /**
  * Regex demo
  */
-
-
-
-
-
-
-
-
 
 
 /**
@@ -544,11 +535,9 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 
         try {
             new MainGit().new B1();
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println(e);
-        }
-        finally {
+        } finally {
             new MainGit().new A1();
         }
 
@@ -556,7 +545,8 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         MainGit nullReferenceTest = null;
         System.out.println(MainGit.class.getName().replaceAll("MainGit", "Hello, World from reflections!"));
 
-        if(System.out.printf("Hello world\n".intern()) == null){}
+        if (System.out.printf("Hello world\n".intern()) == null) {
+        }
 
 //        Set<String> set = new HashSet<>();
 //        set.add("A");
@@ -569,7 +559,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         Double dh1 = Double.MAX_VALUE;
         Double dh2 = Double.MAX_VALUE;
         System.out.println(dh1.hashCode());
-        dh2 = dh2 +100000000000000000000000000.1;
+        dh2 = dh2 + 100000000000000000000000000.1;
         System.out.println(dh2.hashCode());
         System.out.println(dh2.equals(dh1));
         System.out.println(dh1.hashCode() == dh2.hashCode());
@@ -578,10 +568,12 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         i = i++ + ++i;
         System.out.println(i);
 
-        int v1=1; long v2=2; v1= (int) (v1+v2);
+        int v1 = 1;
+        long v2 = 2;
+        v1 = (int) (v1 + v2);
 //        int v1=1; long v2=2; v1+=v2;
 
-        System.out.println(Float.NaN==Float.NaN);
+        System.out.println(Float.NaN == Float.NaN);
         double valueOne = -0.0;
         double valueTwo = 0.0;
 //        System.out.println(Double.compare(valueOne,valueTwo));
@@ -595,13 +587,6 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
             int kk(int k) {
                 super.kk(k);
                 return this.k;
-
-            public static void main(String[] args) {
-                MainGit oc = new MainGit();
-
-                //oc.c<<=2;
-                System.out.println("hi Git! "+oc.c);
-
             }
         };
         System.out.println(exx.kk(7));
@@ -621,9 +606,9 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 
         System.err.println(44);
 
-        int u=33;
+        int u = 33;
         double u2 = 0;
-        u = (int) (u2+3);
+        u = (int) (u2 + 3);
         System.out.println(u);
 
         Singleton.getInstance();
@@ -650,14 +635,13 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         float flo = 13;
 
         String s1 = "test.".toUpperCase()
-                .toLowerCase()
-                .concat("+str1")
-                .toUpperCase();
+            .toLowerCase()
+            .concat("+str1")
+            .toUpperCase();
         System.out.println(s1);
 
 
         BigInteger abig = BigInteger.valueOf(100);
-
 
 
 //        try {
@@ -743,15 +727,10 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
          */
         Object[] elements = new Object[1000];
         for (int j = 0; j < elements.length; j++) {
-            Integer value = j+1;
+            Integer value = j + 1;
             InvocationHandler handler = new TraceHandler(value);
 //            Object proxy = new Proxy.newProxyInstance()//newProxyInstance(null,new Class[]{Comparable.class},handler);
         }
-
-
-
-
-
 
 
     }
@@ -810,18 +789,18 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
     }
 
 
-    static public int hashcode(){
+    static public int hashcode() {
         return 1;
     }
 
     public class TestInnerClass {
-        TestInnerClass(String s){
-            s=callme;
+        TestInnerClass(String s) {
+            s = callme;
             System.out.println(s);
         }
     }
 
-    void ReleaseTestInnerClass(){
+    void ReleaseTestInnerClass() {
         new TestInnerClass("Opa");
     }
 

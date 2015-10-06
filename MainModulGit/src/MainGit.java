@@ -24,7 +24,7 @@ import static java.lang.Math.*;
  */
 public class MainGit extends aClass implements Serializable, CheckGeneric, Check, Inter, Cloneable {
 
-private String callme = "Catch it";
+    private String callme = "Catch it";
 
     @Override
     public int someM(double dd) {
@@ -47,7 +47,7 @@ private String callme = "Catch it";
 
     class A1{
         String str = "s1";
-//        new MainGit();
+        //        new MainGit();
         A1(){
             strinfo();
         }
@@ -65,7 +65,6 @@ private String callme = "Catch it";
 
 
     int c = 1;
-<<<<<<< HEAD
     transient char tc = 'h';
     volatile float ff = 7;
 
@@ -84,25 +83,25 @@ private String callme = "Catch it";
     public static void main(final String[] args) throws IOException, ParserConfigurationException, SAXException, CloneNotSupportedException {
 
         int[] ii = new int[12];
-final int k;
+        final int k;
         final int[] jk = new int[0];
 
         long start, end;
 
         new Object().getClass().getEnclosingClass();
 
-class TestLocal{
-        void t(){
-            args[0]="12";
-            System.out.println("ffffffffffffffff");
+        class TestLocal{
+            void t(){
+                args[0]="12";
+                System.out.println("ffffffffffffffff");
+            }
         }
-    }
 
         CloneTest original = new CloneTest();
         CloneTest copy = (CloneTest) original.clone();
 
         new TimePrinter(){
-        void active(){}
+            void active(){}
         };
 
 //        Timer t = new Timer("3000",listener);
@@ -240,7 +239,7 @@ class TestLocal{
         //ArrayList
         List<String> al = new ArrayList<>();
 
-       // al.ensureCapacity(55);
+        // al.ensureCapacity(55);
         System.out.println("Size of al = " + al.size());
         al.add("1st string");
         al.add("2d string");
@@ -249,7 +248,7 @@ class TestLocal{
 
         System.out.println("Size of al = " + al.size() + "\n" + al);
         al.remove(1);
-       if (al.contains("2st string")) System.out.println("contain");
+        if (al.contains("2st string")) System.out.println("contain");
         else System.out.println("not contain");
         System.out.println(al);
 
@@ -300,7 +299,7 @@ class TestLocal{
         System.out.println(hs.hashCode());
         System.out.println("HashSet = " + hs);
         for (String el : hs){
-           if (el.equals("Bg")) System.out.println(el);;
+            if (el.equals("Bg")) System.out.println(el);;
         }
         System.out.println("HashSet = " + hs);
 //
@@ -338,18 +337,18 @@ class TestLocal{
         System.out.println("TreeSet = " + ts.subSet('a', 'z'));
 
         //TreeSet example with own class and Comparator
-SortedSet<Item> parts = new TreeSet<>();
+        SortedSet<Item> parts = new TreeSet<>();
         parts.add(new Item("ololo",11));
         parts.add(new Item("kokoko",100500));
         parts.add(new Item("hehehe",42));
         System.out.println("Item = "+parts);
-SortedSet<Item> srtbydesc = new TreeSet<>(new Comparator<Item>() {
-    public int compare(Item a, Item b) {
-        String deskA = a.getDescription();
-        String deskB = b.getDescription();
-        return deskA.compareTo(deskB);
-    }
-});
+        SortedSet<Item> srtbydesc = new TreeSet<>(new Comparator<Item>() {
+            public int compare(Item a, Item b) {
+                String deskA = a.getDescription();
+                String deskB = b.getDescription();
+                return deskA.compareTo(deskB);
+            }
+        });
         srtbydesc.addAll(parts);
         System.out.println("Item with Comparator = "+srtbydesc);
 
@@ -588,28 +587,28 @@ SortedSet<Item> srtbydesc = new TreeSet<>(new Comparator<Item>() {
 //        System.out.println(Double.compare(valueOne,valueTwo));
         System.out.println(Double.valueOf(valueOne).equals(valueTwo));
 
-double sh = .4;
+        double sh = .4;
         System.out.println(.6);
 
-MainGitImpl exx = new MainGitImpl() {
-    @Override
-    int kk(int k) {
-        super.kk(k);
-        return this.k;
+        MainGitImpl exx = new MainGitImpl() {
+            @Override
+            int kk(int k) {
+                super.kk(k);
+                return this.k;
 
-    public static void main(String[] args) {
-        MainGit oc = new MainGit();
+            public static void main(String[] args) {
+                MainGit oc = new MainGit();
 
-        //oc.c<<=2;
-        System.out.println("hi Git! "+oc.c);
+                //oc.c<<=2;
+                System.out.println("hi Git! "+oc.c);
 
-    }
-};
+            }
+        };
         System.out.println(exx.kk(7));
 
-new oClass();
+        new oClass();
 
-MainGit omg = new MainGit();
+        MainGit omg = new MainGit();
         //omg.equals()
 
 
@@ -620,9 +619,9 @@ MainGit omg = new MainGit();
 
         System.out.println(MainGit.hashcode());
 
-    System.err.println(44);
+        System.err.println(44);
 
-int u=33;
+        int u=33;
         double u2 = 0;
         u = (int) (u2+3);
         System.out.println(u);
@@ -643,14 +642,14 @@ int u=33;
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-        
+
 //        Observable;
 
         long lo = 13L;
         int int1 = 13;
         float flo = 13;
 
-       String s1 = "test.".toUpperCase()
+        String s1 = "test.".toUpperCase()
                 .toLowerCase()
                 .concat("+str1")
                 .toUpperCase();
@@ -729,20 +728,20 @@ int u=33;
 //        new MimeMessage("sd").setFrom();
 
 
-      Integer xxx = new Integer("25");
+        Integer xxx = new Integer("25");
         int xx = 25;
         if (xxx.equals(xx)) System.out.println(" 25 !!!!");
 
 
-MainGit.TestInnerClass inner = new MainGit().new TestInnerClass("HAHAHA");
+        MainGit.TestInnerClass inner = new MainGit().new TestInnerClass("HAHAHA");
         System.out.println(inner);
 
-char sss = 0;
+        char sss = 0;
         String fg = null;
-/**
- * Proxy test
- */
-Object[] elements = new Object[1000];
+        /**
+         * Proxy test
+         */
+        Object[] elements = new Object[1000];
         for (int j = 0; j < elements.length; j++) {
             Integer value = j+1;
             InvocationHandler handler = new TraceHandler(value);
@@ -815,12 +814,12 @@ Object[] elements = new Object[1000];
         return 1;
     }
 
-public class TestInnerClass {
-TestInnerClass(String s){
-    s=callme;
-    System.out.println(s);
-}
-}
+    public class TestInnerClass {
+        TestInnerClass(String s){
+            s=callme;
+            System.out.println(s);
+        }
+    }
 
     void ReleaseTestInnerClass(){
         new TestInnerClass("Opa");

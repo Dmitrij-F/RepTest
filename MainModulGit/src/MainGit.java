@@ -5,18 +5,18 @@ import InterfaceVsAbstractClass.aClass;
 import InterfaceVsAbstractClass.oClass;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.*;
-import java.lang.reflect.Array;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 import java.math.BigInteger;
 import java.util.*;
-import java.util.List;
 
-import static java.lang.Math.*;
+import static java.lang.Math.random;
+import static java.lang.Math.sqrt;
 
 /**
  * @author Bro
@@ -24,65 +24,26 @@ import static java.lang.Math.*;
  */
 public class MainGit extends aClass implements Serializable, CheckGeneric, Check, Inter, Cloneable {
 
-    private String callme = "Catch it";
+    static {
 
-    @Override
-    public int someM(double dd) {
-        return 0;
+        byte ids = 8;
+    }
+
+    static {
+        System.out.println("Hi Static!");
+        //System.exit(10);
     }
 
     Thread ot1 = new Thread();
-
-    @Override
-    public void run() {
-        synchronized (ot1) {
-        }
-        ot1.start();
-
-    }
-
-    @Override
-    public void method() {
-
-    }
-
-    class A1 {
-        String str = "s1";
-
-        //        new MainGit();
-        A1() {
-            strinfo();
-        }
-
-        void strinfo() {
-            System.out.println(str + " - " + str.length());
-        }
-    }
-
-    class B1 extends A1 {
-        String str = "s23";
-
-        void strinfo() {
-            System.out.println(str + " - " + str.length());
-        }
-    }
-
-
     int c = 1;
     transient char tc = 'h';
     volatile float ff = 7;
-
-
-//    <Y extends String> MainGit(Y m) {
-//        String s = m.toString();
-//        System.out.println(s);
-//    }
+    private String callme = "Catch it";
 
     static <F, V extends F> void genMethod(F x, V a[]) {
         System.out.println(x.getClass() + a.toString());
 
     }
-
 
     public static void main(final String[] args) throws IOException, ParserConfigurationException, SAXException, CloneNotSupportedException {
 
@@ -91,6 +52,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         final int[] jk = new int[0];
 
         long start, end;
+
 
         new Object().getClass().getEnclosingClass();
 
@@ -104,10 +66,6 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         CloneTest original = new CloneTest();
         CloneTest copy = (CloneTest) original.clone();
 
-        new TimePrinter() {
-            void active() {
-            }
-        };
 
 //        Timer t = new Timer("3000",listener);
 //        JOptionPane.showMessageDialog(null,"Exit now?");
@@ -140,6 +98,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 
         PrintWriter pw = new PrintWriter(System.out, true);
         pw.println(c);
+
 
 /** File IO demo*/
 //       int i;
@@ -184,7 +143,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         } */
 
 
-/** instanceof demo*/
+/** instanceof */
         A a = new A();
         B b = new B();
         C c1 = new C();
@@ -210,7 +169,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 
         System.out.println();
 
-/** Generics demo */
+/** Generics  */
         GenericDemo<Byte> obb = new GenericDemo<Byte>((byte) 127);
         obb.ShowG();
         byte v = obb.getObg();
@@ -240,7 +199,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
             System.out.println("Equal");
         else System.out.println("Not equal");
 
-/** Collections Demo */
+/** Collections  */
         //ArrayList
         List<String> al = new ArrayList<>();
 
@@ -290,6 +249,9 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         System.out.println("Shuffle ll = " + ll);
         List<Double> sub = ll.subList(1, 2);
         System.out.println(sub);
+
+        Collections.reverse(ll);
+        System.out.println("LinkedList REVERSE = "+ll);
 
 
         //HashSet
@@ -441,6 +403,8 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         //For-each with collections
         double sumd = 0;
         System.out.println("For-each");
+//        Double ddd = 0.0;
+//        ll.forEach(ddd);
         for (double dd : ll) {
             sumd += dd;
         }
@@ -453,26 +417,6 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         List<String> settings = Collections.nCopies(55, "Cop");
 
         Hashtable<String, String> hi;
-
-
-/**
- * XML demo
- */
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-//        File ff = new File("");
-//
-//
-//            DocumentBuilder builder = factory.newDocumentBuilder();
-//            Document doc = builder.parse(ff);
-//
-//
-//        Element root = doc.getDocumentElement();
-//        NodeList children = root.getChildNodes();
-
-/**
- * Regex demo
- */
-
 
 /**
  * Quizful test
@@ -532,6 +476,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         System.out.println("." + mass.length + list.size());
 
         System.out.println(((CheckGeneric) new MainGit()).text);
+
 
         try {
             new MainGit().new B1();
@@ -596,11 +541,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         MainGit omg = new MainGit();
         //omg.equals()
 
-
         new EmployeeExt().testGetSet();
-
-//mkdir();
-
 
         System.out.println(MainGit.hashcode());
 
@@ -656,72 +597,23 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 //        (new Thread(mt)).start();
 //        (new Thread(mt)).start();
 
-
-/**
- * System, Runtime and Desktop usage
- */
-
-//        try {
-//            Desktop.getDesktop().browse(new URI("asd"));
-//        } catch (URISyntaxException e) {
-//            e.printStackTrace();
-//        }
-
-
-//        finally {System.out.println("Finally");}
-
-
-//        System.out.println(Runtime.getRuntime().totalMemory());
-
-//        try {
-//            Runtime.getRuntime().exec("notepad");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        Runtime.getRuntime().exec("notepad").destroy();
-//
-//        start = System.currentTimeMillis();
-//
-//        ProcessBuilder pr = new ProcessBuilder("notepad","testy");
-//        pr.start();
-//
-//        end = System.currentTimeMillis();
-////        System.out.println("main time = "+(end-start));
-//
-//        System.out.println(ClassLoader.getSystemClassLoader().getClass().getName());
-
-//        System.out.println(System.getProperty("java.vm.name"));
-
-        //MainGit mg = new MainGit();
-
-
-        /**
-         * JDBC - MySQL demo
-         */
-//        SQLDemo.runSQL();
-
-//        System.out.println(RGB.G.getI());
-
-        /**
-         * Net Demo
-         */
-//NetDemo.connectToServer();
-//       NetDemo.URLConnect();
-
-//        Session mailsession = Session.getDefaultInstance();
-//        new MimeMessage("sd").setFrom();
-
-
         Integer xxx = new Integer("25");
         int xx = 25;
         if (xxx.equals(xx)) System.out.println(" 25 !!!!");
-
 
         MainGit.TestInnerClass inner = new MainGit().new TestInnerClass("HAHAHA");
         System.out.println(inner);
 
         char sss = 0;
         String fg = null;
+
+
+
+
+
+
+
+
         /**
          * Proxy test
          */
@@ -729,7 +621,11 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         for (int j = 0; j < elements.length; j++) {
             Integer value = j + 1;
             InvocationHandler handler = new TraceHandler(value);
-//            Object proxy = new Proxy.newProxyInstance()//newProxyInstance(null,new Class[]{Comparable.class},handler);
+
+//                MainGit opa = (MainGit) Proxy.newProxyInstance(MainGit.class.getClassLoader(),
+//                new Class<?>[] { MainGit.class },
+//                handler);
+
         }
 
 
@@ -739,6 +635,12 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         Boolean bb = new Boolean("/true");
         System.out.println(bb);
     }
+
+
+//    <Y extends String> MainGit(Y m) {
+//        String s = m.toString();
+//        System.out.println(s);
+//    }
 
     public static double sqr1(double arg) {
         return arg;
@@ -754,30 +656,39 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         return arg;
     }
 
+    public static double sqr5(double arg) {
+        throw new RuntimeException();
+    }
+
+    static public int hashcode() {
+        return 1;
+    }
+
+    @Override
+    public int someM(double dd) {
+        return 0;
+    }
+
+    @Override
+    public void run() {
+        synchronized (ot1) {
+        }
+        ot1.start();
+
+    }
+
+    @Override
+    public void method() {
+
+    }
+
     public double sqr4(double arg) {
         int k = 1;
         return k;
     }
 
-    public static double sqr5(double arg) {
-        throw new RuntimeException();
-    }
-
-
-    static {
-
-        byte ids = 8;
-    }
-
-
     void absM() {
         System.out.println("MainGit override absM");
-    }
-
-
-    static {
-        System.out.println("Hi Static!");
-        //System.exit(10);
     }
 
     public boolean equals(Object obj) {
@@ -788,9 +699,29 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         return (boolean) obj;
     }
 
+    void ReleaseTestInnerClass() {
+        new TestInnerClass("Opa");
+    }
 
-    static public int hashcode() {
-        return 1;
+    class A1 {
+        String str = "s1";
+
+        //        new MainGit();
+        A1() {
+            strinfo();
+        }
+
+        void strinfo() {
+            System.out.println(str + " - " + str.length());
+        }
+    }
+
+    class B1 extends A1 {
+        String str = "s23";
+
+        void strinfo() {
+            System.out.println(str + " - " + str.length());
+        }
     }
 
     public class TestInnerClass {
@@ -798,10 +729,6 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
             s = callme;
             System.out.println(s);
         }
-    }
-
-    void ReleaseTestInnerClass() {
-        new TestInnerClass("Opa");
     }
 
 

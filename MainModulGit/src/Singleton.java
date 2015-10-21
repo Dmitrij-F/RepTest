@@ -1,7 +1,7 @@
 /**
  * Created by Bro on 13.09.15.
  */
-public class Singleton {
+public class Singleton{
     private static Singleton os;
     private Singleton(){}
     public static synchronized Singleton getInstance() {

@@ -11,7 +11,6 @@ import java.io.PrintWriter;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Proxy;
 import java.math.BigInteger;
 import java.util.*;
 
@@ -23,6 +22,21 @@ import static java.lang.Math.sqrt;
  * @version 1.1
  */
 public class MainGit extends aClass implements Serializable, CheckGeneric, Check, Inter, Cloneable {
+
+   private int y = 2;
+
+    MainGit(int y){
+        this.y=y;
+    }
+    MainGit(){
+
+    }
+
+
+
+    protected boolean bb(){
+        return true;
+    }
 
     static {
 
@@ -47,6 +61,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 
     public static void main(final String[] args) throws IOException, ParserConfigurationException, SAXException, CloneNotSupportedException {
 
+        new MainGit();
         int[] ii = new int[12];
         final int k;
         final int[] jk = new int[0];
@@ -344,6 +359,8 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 //        //HashMap
         HashMap<String, Double> hm = new HashMap<>();
 
+        hm.hashCode();
+
         hm.put("Middle", 1000.10);
         hm.put("Junior", 500.5);
         hm.put("Senior", 2000.20);
@@ -529,7 +546,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 
         MainGitImpl exx = new MainGitImpl() {
             @Override
-            int kk(int k) {
+            public int kk(int k) {
                 super.kk(k);
                 return this.k;
             }

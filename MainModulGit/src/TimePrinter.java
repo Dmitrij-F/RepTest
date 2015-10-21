@@ -13,4 +13,10 @@ public class TimePrinter implements ActionListener {
         System.out.println("Beep + date"+now);
         Toolkit.getDefaultToolkit().beep();
     }
+
+    public static void main(String[] args) {
+        new TimePrinter().actionPerformed((ActionEvent) new Object());
+    }
+
+
 }

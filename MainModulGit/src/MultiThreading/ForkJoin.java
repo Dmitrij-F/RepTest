@@ -1,12 +1,11 @@
-package ForkJoin;
+package MultiThreading;
 
 import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
 
-/**
- * Created by Bro on 06.10.15.
- */
-public class Fork extends RecursiveAction {
+
+public class ForkJoin extends RecursiveAction {
     static int[] inputData;
     int beginning;
     int length;
@@ -32,8 +31,8 @@ public class Fork extends RecursiveAction {
                 )
         );
 
-        invokeAll(new Fork(inputData, beginning, split, result),
-                new Fork(inputData, beginning + split, length - split, result));
+        invokeAll(new ForkJoin(inputData, beginning, split, result),
+                new ForkJoin(inputData, beginning + split, length - split, result));
     }
 
     public int process(int input) {
@@ -48,7 +47,7 @@ public class Fork extends RecursiveAction {
         }
     }
 
-    Fork(int[] input, int beginning, int length, int[] result) {
+    ForkJoin(int[] input, int beginning, int length, int[] result) {
         inputData = input;
         this.beginning = beginning;
         this.length = length;
@@ -58,14 +57,13 @@ public class Fork extends RecursiveAction {
     public static void main(String[] args) {
         System.out.println("Hello!");
 
-
         inputData = new int[dataSize];
         result = new int[dataSize];
         for (int i = 0; i < dataSize; i++) {
             inputData[i] = (int) Math.round(Math.random() * 10000);
         }
 
-        Fork fork = new Fork(inputData, 0, dataSize, result);
+        ForkJoin fork = new ForkJoin(inputData, 0, dataSize, result);
         ForkJoinPool pool = new ForkJoinPool();
         pool.invoke(fork);
     }

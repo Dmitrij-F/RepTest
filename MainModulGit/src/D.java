@@ -3,5 +3,7 @@
  */
 public class D extends B{
     int k;
-//    abstract void meth();
+     void meth(){}
+
+
 }

@@ -18,7 +18,7 @@ public class Main {
 
         Collections.sort(list);
 
-//        for (Map.Entry<Item, Double> entry : map.entrySet()) {
+//        for (Map.Entry<collections.Item, Double> entry : map.entrySet()) {
 //            System.out.println("entry = " + entry.getKey() + " >> " + entry.getValue());
 //        }
 

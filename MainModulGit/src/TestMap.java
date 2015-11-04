@@ -5,7 +5,7 @@ import java.util.Set;
  */
 public class TestMap {
 
-    public Set keySet(){
-        return  null;
+    public Set keySet() {
+        return null;
     }
 }

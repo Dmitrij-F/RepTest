@@ -10,7 +10,7 @@ public class TimePrinter implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Date now = new Date();
-        System.out.println("Beep + date"+now);
+        System.out.println("Beep + date" + now);
         Toolkit.getDefaultToolkit().beep();
     }
 

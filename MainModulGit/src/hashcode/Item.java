@@ -38,7 +38,7 @@ public class Item implements Comparable<Itemable>, Itemable {
 
 //    @Override
 //    public boolean equals(Object obj) {
-//        Item item = (Item) obj;
+//        collections.Item item = (collections.Item) obj;
 //        return a * b * c == item.a * item.b * item.c;
 //    }
 }

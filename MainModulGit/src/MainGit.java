@@ -1,8 +1,5 @@
-import Generics.GenericDemo;
-import Generics.RestrectedGeneric;
-import InterfaceVsAbstractClass.Inter;
-import InterfaceVsAbstractClass.aClass;
-import InterfaceVsAbstractClass.oClass;
+import generics.GenericDemo;
+import generics.RestrectedGeneric;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -12,7 +9,9 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.math.BigInteger;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static java.lang.Math.random;
 import static java.lang.Math.sqrt;
@@ -21,20 +20,20 @@ import static java.lang.Math.sqrt;
  * @author Bro
  * @version 1.1
  */
-public class MainGit extends aClass implements Serializable, CheckGeneric, Check, Inter, Cloneable {
+public class MainGit implements Serializable, CheckGeneric, Check, Cloneable {
 
-   private int y = 2;
+    private int y = 2;
 
-    MainGit(int y){
-        this.y=y;
-    }
-    MainGit(){
-
+    MainGit(int y) {
+        this.y = y;
     }
 
+    MainGit() {
+
+    }
 
 
-    protected boolean bb(){
+    protected boolean bb() {
         return true;
     }
 
@@ -99,14 +98,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 //       MainGit oc = new MainGit();
 //       oc.c <<= 2;
 //       System.out.println("hi Git! " + oc.c);
-/*
-        Console br = new Console();
-        try {
-            br.readSymbol();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-*/
+
         c = 'a';
         System.out.write(c);
         System.out.write('\n');
@@ -184,7 +176,7 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
 
         System.out.println();
 
-/** Generics  */
+/** generics  */
         GenericDemo<Byte> obb = new GenericDemo<Byte>((byte) 127);
         obb.ShowG();
         byte v = obb.getObg();
@@ -214,226 +206,6 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
             System.out.println("Equal");
         else System.out.println("Not equal");
 
-/** Collections  */
-        //ArrayList
-        List<String> al = new ArrayList<>();
-
-        // al.ensureCapacity(55);
-        System.out.println("Size of al = " + al.size());
-        al.add("1st string");
-        al.add("2d string");
-        al.add(String.valueOf("3d string".charAt(5)));
-        al.add(2, "insert");
-
-        System.out.println("Size of al = " + al.size() + "\n" + al);
-        al.remove(1);
-        if (al.contains("2st string")) System.out.println("contain");
-        else System.out.println("not contain");
-        System.out.println(al);
-
-        String os[] = new String[al.size()];
-        os = al.toArray(os);
-        System.out.println(os);
-        String sum = null;
-        for (String i : os)
-            sum += i;
-        System.out.println(sum);
-
-        //LinkedList
-        LinkedList<Double> ll = new LinkedList<>();
-        ll.add(88.5);
-        ll.add(11.5);
-        ll.add(3.5);
-        ll.addLast(55.5);
-        ll.addFirst(0.5);
-        ll.set(2, 54.1);
-        System.out.println("get index 4 = " + ll.get(4));
-        ll.set(3, ll.get(3) + 60.5);
-        System.out.println("LinkedList = " + ll);
-        Collections.sort(ll);
-        System.out.println("LinkedList sort = " + ll);
-        int ki = Collections.binarySearch(ll, 111.5);
-        if (ki > 0) System.out.println(ll.get(ki));
-        else {
-            System.out.println(ki);
-            ll.add(-ki - 1, 111.5);
-            System.out.println("ll + ki = " + ll);
-        }
-        System.out.println("Max ll = " + Collections.max(ll));
-        Collections.shuffle(ll);
-        System.out.println("Shuffle ll = " + ll);
-        List<Double> sub = ll.subList(1, 2);
-        System.out.println(sub);
-
-        Collections.reverse(ll);
-        System.out.println("LinkedList REVERSE = "+ll);
-
-
-        //HashSet
-        HashSet<String> hs = new HashSet<>();
-        hs.add("C");
-        hs.add("D");
-        hs.add("B");
-        hs.add("A");
-        System.out.println(hs.hashCode());
-        System.out.println("HashSet = " + hs);
-        for (String el : hs) {
-            if (el.equals("Bg")) System.out.println(el);
-            ;
-        }
-        System.out.println("HashSet = " + hs);
-//
-//        Iterator<String> ihs = hs.iterator();
-//        Scanner in = new Scanner(System.in);
-//        while (in.hasNext()) {
-//            String word = in.next();
-//            hs.add(word);
-//        }
-//        System.out.println(hs);
-
-
-        char[] cc = "jk".toCharArray();
-        System.out.println("String to char = " + cc[0] + " " + cc[1]);
-//
-//ArrayList<String> la = new ArrayList<>(hs);
-//        System.out.println("HashSet to ArrayList = "+la);
-
-
-        //LinkedHashSet
-        LinkedHashSet<String> lhs = new LinkedHashSet<>();
-        lhs.add("B");
-        lhs.add("D");
-        lhs.add("C");
-        lhs.add("D");
-        System.out.println("LinkedHashSet = " + lhs);
-
-        //TreeSet
-        TreeSet<Character> ts = new TreeSet<>();
-        ts.add('z');
-        ts.add('x');
-        ts.add('a');
-        ts.add('Z');
-        System.out.println("TreeSet = " + ts);
-        System.out.println("TreeSet = " + ts.subSet('a', 'z'));
-
-        //TreeSet example with own class and Comparator
-        SortedSet<Item> parts = new TreeSet<>();
-        parts.add(new Item("ololo", 11));
-        parts.add(new Item("kokoko", 100500));
-        parts.add(new Item("hehehe", 42));
-        System.out.println("Item = " + parts);
-        SortedSet<Item> srtbydesc = new TreeSet<>(new Comparator<Item>() {
-            public int compare(Item a, Item b) {
-                String deskA = a.getDescription();
-                String deskB = b.getDescription();
-                return deskA.compareTo(deskB);
-            }
-        });
-        srtbydesc.addAll(parts);
-        System.out.println("Item with Comparator = " + srtbydesc);
-
-        //ArrayDeque
-        ArrayDeque<Boolean> ad = new ArrayDeque<>(250);
-        ad.add(true);
-        ad.add(true);
-        ad.add(true);
-        ad.add(false);
-        System.out.println("ArrayDeque = " + ad);
-        while (ad.peek() != null)
-            System.out.println(ad.pop());
-
-        //Prioruty Queue
-        PriorityQueue<GregorianCalendar> pq = new PriorityQueue<>();
-        pq.add(new GregorianCalendar(1983, Calendar.DECEMBER, 20)); // My date
-        pq.add(new GregorianCalendar(1989, Calendar.FEBRUARY, 16)); // Ded
-        pq.add(new GregorianCalendar(2002, Calendar.JUNE, 14)); // Kentik
-        for (GregorianCalendar date : pq) {
-            System.out.println("Prioruty Queue = " + date.get(Calendar.YEAR));
-        }
-        while (!pq.isEmpty()) {
-            System.out.println("Prioruty Queue = " + pq.remove().get(Calendar.YEAR));
-        }
-//        System.out.println(pq);
-
-
-//        //HashMap
-        HashMap<String, Double> hm = new HashMap<>();
-
-        hm.hashCode();
-
-        hm.put("Middle", 1000.10);
-        hm.put("Junior", 500.5);
-        hm.put("Senior", 2000.20);
-//        Set<String> sk = new hm.keySet();
-        Set<Map.Entry<String, Double>> set = hm.entrySet();
-        for (HashMap.Entry<String, Double> mm : set) {
-            System.out.print(mm.getKey() + " : ");
-            System.out.println(mm.getValue());
-        }
-        double upmid = hm.get("Middle");
-        hm.put("Middle", upmid + 200);
-        System.out.println("Middle new value = " + hm.get("Middle"));
-
-        Map<String, String> staff = new HashMap<>();
-        staff.put("00-111", "Vasja");
-        staff.put("00-112", "Kolja");
-        staff.put("00-113", "Ivan");
-        System.out.println("Emplyers = " + staff);
-        staff.remove("00-111");
-        staff.put("00-113", "Sanja");
-        System.out.println("Kolja = " + staff.get("00-112"));
-        for (Map.Entry<String, String> entry : staff.entrySet())
-            System.out.println("key = " + entry.getKey() + "value = " + entry.getValue());
-
-
-        //TreeMap
-        TreeMap<String, Double> tm = new TreeMap<>();
-        tm.put("Middle", 1000.10);
-        tm.put("Junior", 5000.5);
-        tm.put("Senior", 2000.20);
-        Set<Map.Entry<String, Double>> sett = tm.entrySet();
-        for (Map.Entry<String, Double> mm : sett) {
-            System.out.print(mm.getKey() + " : ");
-            System.out.println(mm.getValue());
-        }
-
-        //Iterator
-//        int aa[] = {1, 2, 3, 4};
-//        List<Integer> intList = aa[];
-//        Iterator<Integer> itr = intList.iterator();
-//        System.out.println("ITERATOR");
-//        while (itr.hasNext())
-//            System.out.println(itr.next());
-
-        //ListIterator
-        ListIterator<Double> ill = ll.listIterator();
-        System.out.println("ListIterator");
-        while (ill.hasNext()) {
-            ill.next();
-            //colle.remove();
-        }
-        while (ill.hasNext())
-            System.out.print(+ill.next() + " ");
-
-        System.out.println();
-
-        //For-each with collections
-        double sumd = 0;
-        System.out.println("For-each");
-//        Double ddd = 0.0;
-//        ll.forEach(ddd);
-        for (double dd : ll) {
-            sumd += dd;
-        }
-        System.out.print(sumd + " ");
-        System.out.println();
-
-
-        String[] ca = new String[5];
-        List<String> names = Arrays.asList("Jo", "Jon", "Kate");
-        List<String> settings = Collections.nCopies(55, "Cop");
-
-        Hashtable<String, String> hi;
 
 /**
  * Quizful test
@@ -553,7 +325,6 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         };
         System.out.println(exx.kk(7));
 
-        new oClass();
 
         MainGit omg = new MainGit();
         //omg.equals()
@@ -625,12 +396,6 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
         String fg = null;
 
 
-
-
-
-
-
-
         /**
          * Proxy test
          */
@@ -684,19 +449,6 @@ public class MainGit extends aClass implements Serializable, CheckGeneric, Check
     @Override
     public int someM(double dd) {
         return 0;
-    }
-
-    @Override
-    public void run() {
-        synchronized (ot1) {
-        }
-        ot1.start();
-
-    }
-
-    @Override
-    public void method() {
-
     }
 
     public double sqr4(double arg) {

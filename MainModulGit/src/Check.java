@@ -9,5 +9,5 @@ public interface Check {
      * @param dd
      * @return
      */
-   int someM(double dd);
+    int someM(double dd);
 }

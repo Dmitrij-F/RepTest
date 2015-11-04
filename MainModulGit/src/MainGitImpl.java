@@ -5,19 +5,20 @@ public class MainGitImpl extends MainGit {
     int k = 1;
     private int jj = 44;
 
-   public int kk(int k) {
+    public int kk(int k) {
         //c=5;
         this.k = k + c;
         return this.k;
     }
 
-    MainGitImpl(){}
+    MainGitImpl() {
+    }
 
     public MainGitImpl(int y, int k) {
         new MainGit(5);
 //        super(y);
         this.k = k;
-super.bb();
+        super.bb();
     }
 
     @Override
@@ -42,10 +43,9 @@ super.bb();
 
     @Override
     public int someM(double dd) {
-        dd=0.2;
+        dd = 0.2;
         super.sqr4(0.2);
         super.sqr4(0.2);
-
 
 
         return super.someM(dd);
@@ -55,7 +55,6 @@ super.bb();
     public static void main(String[] args) {
         new MainGitImpl().someM(1.1);
         new MainGitImpl().kk(7);
-
 
 
     }

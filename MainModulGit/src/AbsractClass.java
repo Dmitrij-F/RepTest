@@ -3,9 +3,11 @@
  */
 abstract public class AbsractClass {
     Double da = 44.5;
+
     abstract void absM();
-   Number AbsractClass(double d){
-       return da = 66.7;
+
+    Number AbsractClass(double d) {
+        return da = 66.7;
     }
 
 

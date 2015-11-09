@@ -4,7 +4,7 @@ import java.applet.Applet;
 import java.awt.*;
 
 /**
- * fix CC3
+ * fix CC4
  */
 public class SimpleApplet extends Applet {
     transient int h = 10;

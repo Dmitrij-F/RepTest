@@ -1,8 +1,5 @@
 package patterns;
 
-/**
- * Created by Bro on 13.09.15.
- */
 public class Singleton {
     private static Singleton os;
 
@@ -17,9 +14,5 @@ public class Singleton {
         return os;
     }
 
-//    public static final patterns.Singleton os = new patterns.Singleton();
-//    private patterns.Singleton() {
-//
-//    }
 
 }

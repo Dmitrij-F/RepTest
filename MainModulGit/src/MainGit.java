@@ -1,6 +1,7 @@
 import generics.GenericDemo;
 import generics.RestrectedGeneric;
 import org.xml.sax.SAXException;
+import patterns.Singleton;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;

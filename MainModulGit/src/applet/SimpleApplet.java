@@ -3,6 +3,9 @@ package applet;
 import java.applet.Applet;
 import java.awt.*;
 
+/**
+ * fix CC
+ */
 public class SimpleApplet extends Applet {
     transient int h = 10;
     volatile int k = 10;

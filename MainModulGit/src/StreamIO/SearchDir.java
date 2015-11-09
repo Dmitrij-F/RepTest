@@ -1,4 +1,4 @@
-package StreamIO;
+package streamio;
 
 import java.io.File;
 import java.util.Scanner;
@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class SearchDir {
     public static void main(String[] args) {
-/*        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         File f;
         String path, file;
         boolean result = false;
@@ -26,6 +26,6 @@ public class SearchDir {
         }
         if (result == true)
             System.out.println("File located in the folder");
-        else System.out.println("File was not found ");*/
+        else System.out.println("File was not found ");
     }
 }

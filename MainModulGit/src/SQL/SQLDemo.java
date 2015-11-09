@@ -1,10 +1,7 @@
-package SQL;
+package sql;
 
 import java.sql.*;
 
-/**
- * Created by Bro on 25.09.15.
- */
 public class SQLDemo {
     public static void runSQL() {
 
@@ -29,7 +26,6 @@ public class SQLDemo {
 
 //            conn.createStatement().executeUpdate("ALTER TABLE Characters ADD id INT");
 
-
             Statement stat = conn.createStatement();
             ResultSet rs = stat.executeQuery("SELECT * FROM Characters LEFT JOIN pet ON Characters.petik = pet.name");
             while (rs.next()) {
@@ -41,9 +37,7 @@ public class SQLDemo {
                 System.out.println(rs2.getString(1));
             }
 
-
             DatabaseMetaData meta = conn.getMetaData();
-
 
         } catch (SQLException e) {
             e.printStackTrace();

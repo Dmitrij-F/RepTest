@@ -1,4 +1,4 @@
-package UpWork;
+package upwork;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,23 +21,6 @@ public class AddTagsToFile {
         System.out.println(view.list());
         view.write("creator",
             Charset.defaultCharset().encode("hhhh"));
-
-
-
-//        Path path = new File("SetAtrFile.txt").toPath();
-//
-//        try{
-//
-//            Files.setAttribute(path, "acl:owner");
-//        }catch(IOException e){
-//            System.out.println(e.getMessage());
-//        }
-//        try{
-//            System.out.println(Files.getAttribute(path, "encryption used"));
-//        }catch(IOException e){
-//            System.out.println(e.getMessage());
-//        }
-
 
     }
 }

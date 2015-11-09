@@ -1,7 +1,6 @@
-package MultiThreading;
+package multithreading;
 
 import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
 
 
@@ -26,13 +25,13 @@ public class ForkJoin extends RecursiveAction {
                 "Splitting task [%d to %d] into two:\n\tFirst half [from %d to %d]\n\tSecond half [from %d to %d]",
                 beginning,
                 beginning + length,
-                        beginning, beginning + split,
-                        beginning + split + 1, beginning + length
-                )
+                beginning, beginning + split,
+                beginning + split + 1, beginning + length
+            )
         );
 
         invokeAll(new ForkJoin(inputData, beginning, split, result),
-                new ForkJoin(inputData, beginning + split, length - split, result));
+            new ForkJoin(inputData, beginning + split, length - split, result));
     }
 
     public int process(int input) {

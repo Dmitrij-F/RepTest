@@ -1,12 +1,10 @@
-package MultiThreading;
+package multithreading;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by Bro on 06.10.15.
- */
+
 public class StreamsAPI {
     public static void main(String[] args) {
         Integer[] input = new Integer[100];

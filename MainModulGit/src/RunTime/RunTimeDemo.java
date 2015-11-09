@@ -1,4 +1,4 @@
-package RunTime;
+package runtime;
 
 import java.awt.*;
 import java.io.IOException;
@@ -9,7 +9,6 @@ import java.net.URISyntaxException;
  * System, Runtime and Desktop usage
  */
 public class RunTimeDemo {
-
 
     public static void main(String[] args) {
 
@@ -22,7 +21,6 @@ public class RunTimeDemo {
         } finally {
             System.out.println("Finally");
         }
-
 
         System.out.println(Runtime.getRuntime().totalMemory());
 
@@ -46,7 +44,6 @@ public class RunTimeDemo {
 //        System.out.println("main time = "+(end-start));
 
         System.out.println(ClassLoader.getSystemClassLoader().getClass().getName());
-
         System.out.println(System.getProperty("java.vm.name"));
 
     }

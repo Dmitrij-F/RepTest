@@ -1,4 +1,4 @@
-package Generics;
+package generics;
 
 public class GenericDemo<G> {
 
@@ -15,7 +15,5 @@ public class GenericDemo<G> {
     public void ShowG() {
         System.out.println("Type of G = " + obg.getClass().getName());
     }
-
-
 
 }

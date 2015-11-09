@@ -1,4 +1,4 @@
-package XML;
+package xml;
 
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
@@ -98,7 +98,7 @@ public class DOMExample {
         // Добавляем книгу в корневой элемент
         root.appendChild(book);
 
-        // Записываем XML в файл
+        // Записываем xml в файл
         writeDocument(document);
     }
 

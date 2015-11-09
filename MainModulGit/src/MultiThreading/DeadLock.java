@@ -1,8 +1,5 @@
-package MultiThreading;
+package multithreading;
 
-/**
- * Created by Bro on 09.10.15.
- */
 public class DeadLock {
     static class Friend {
         private final String name;

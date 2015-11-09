@@ -1,4 +1,4 @@
-package Net;
+package net;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,7 +29,6 @@ public class NetDemo {
         }
 
     }
-
 
     public static void connectToServer() throws IOException {
 
@@ -72,7 +71,6 @@ public class NetDemo {
         System.out.println("Content type = " + connection.getExpiration());
         System.out.println("Content type = " + connection.getLastModified());
     }
-
 
     public static void main(String[] args) throws IOException {
         NetDemo.URLConnect();
